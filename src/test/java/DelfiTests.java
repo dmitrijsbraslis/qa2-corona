@@ -12,6 +12,8 @@ public class DelfiTests {
     private final By ACCEPT_COOKIES_BTN = By.xpath(".//button[@mode = 'primary']");
     private final By ARTICLE_TITLE = By.xpath(".//span[@itemprop = 'headline name']");
 
+//    private final By ID_LOCATOR = By.name("id")
+
     @Test
     public void firstTest() {
         System.setProperty("webdriver.chrome.driver", "C://chromedriver.exe");
@@ -28,7 +30,7 @@ public class DelfiTests {
 
     @Test
     public void tvnetTest() {
-        String articleToOpen = "Pūce strādās divās Saeimas komisijās";
+        String articleToOpen = "Aparjods notikumiem bagātā posmā Altenbergā izcīna bronzu";
 
         System.setProperty("webdriver.chrome.driver", "C://chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -37,26 +39,26 @@ public class DelfiTests {
         driver.get("http://tvnet.lv");
 
         List<WebElement> articles = driver.findElements(ARTICLE_TITLE);
-        //-----------------------for-----------------------------------------
+
+        System.out.println(articles.size());
+        System.out.println(articles.isEmpty());
+        System.out.println(articles.get(5).getText());
+
+        //---------------------------for----------------------------------
+        //-counter start--till---------------step-- (i++ -> i = i + 1)
 //        for (int i = 0; i < articles.size(); i++) {
-//            String currentTitle = articles.get(i).getText();
-//
-//            if (currentTitle.startsWith(articleToOpen)) {
+//            if (articles.get(i).getText().startsWith(articleToOpen)) {
 //                articles.get(i).click();
 //                break;
 //            }
-//            System.out.println(i + " " + articles.get(i).getText());
 //        }
-        //-----------------------foreach-------------------------------------
+
+        //---------------------------foreach------------------------------
         for (WebElement we : articles) {
             if (we.getText().startsWith(articleToOpen)) {
                 we.click();
                 break;
             }
-
-//            System.out.println(we.getText());
         }
-
-
     }
 }
