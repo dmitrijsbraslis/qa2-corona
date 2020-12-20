@@ -1,3 +1,5 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -12,18 +14,24 @@ public class FirstFullTest {
 
     private final By ARTICLE_PAGE_TITLE = By.xpath(".//h1[@itemprop = 'headline name']");
 
+    private final Logger LOGGER = LogManager.getLogger(FirstFullTest.class);
+
     @Test
     public void titleAndCommentsCheck() {
+        LOGGER.info("This test is checking titles and comments on TVNET page");
         System.setProperty("webdriver.chrome.driver", "C://chromedriver.exe");
+
+        LOGGER.info("We are opening browser window");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
 
+        LOGGER.info("Going to TVNET Home Page");
         driver.get("http://tvnet.lv");
 
-        //Find 3rd article
-        WebElement currentArticle = driver.findElements(ARTICLE).get(2);
+        LOGGER.info("Taking 3rd article");
+        WebElement currentArticle = driver.findElements(ARTICLE).get(0);
 
-        //Find and store title
+        LOGGER.info("Finding and store article title");
         String titleToCompare = currentArticle.findElement(TITLE).getText();
 
         //Find and store comments count
@@ -62,7 +70,9 @@ public class FirstFullTest {
 
         //Find and check title
         String articlePageTitle = driver.findElement(ARTICLE_PAGE_TITLE).getText();
-        Assertions.assertEquals(titleToCompare, articlePageTitle, "Wrong title on article page");
+//        Assertions.assertEquals(titleToCompare, articlePageTitle, "Wrong title on article page");
+        Assertions.assertTrue(titleToCompare.startsWith(articlePageTitle), "Wrong title on article page");
+
 
         //Find and check comments count
 
