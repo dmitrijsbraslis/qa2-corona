@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 public class MyFirstTest {
-    private String name = "Gospodin";
+    private String name = "Gospodin ";
 
     @Test
     public void firstTest() {
