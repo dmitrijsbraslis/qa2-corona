@@ -28,12 +28,13 @@ public class Course {
     public void printInfo() {
         System.out.println("Course: " + name + " starting from " + startDate);
         System.out.println("Students of this course:");
+
         for (Student student : students) {
             System.out.println(student.getFullName());
         }
     }
 
-    public void addStudent(Student student) {
-        students.add(student);
+    public void addStudent(Student studentToAdd) {
+        students.add(studentToAdd);
     }
 }

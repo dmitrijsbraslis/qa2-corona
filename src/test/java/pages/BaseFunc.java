@@ -17,17 +17,19 @@ public class BaseFunc {
     private WebDriverWait wait;
 
     public BaseFunc() {
-        LOGGER.info("Setting webdriver path");
+        LOGGER.info("Setting up driver path");
         System.setProperty("webdriver.chrome.driver", "C://chromedriver.exe");
 
         LOGGER.info("Opening browser window");
         driver = new ChromeDriver();
+
+        LOGGER.info("Maximizing window");
         driver.manage().window().maximize();
 
         wait = new WebDriverWait(driver, 10);
     }
 
-    public void openUrl(String url) {
+    public void openURL(String url) {
         LOGGER.info("Opening " + url + " web page");
         driver.get(url);
     }

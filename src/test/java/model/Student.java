@@ -1,14 +1,14 @@
 package model;
 
 public class Student {
-    //----------ATTRIBUTES------------
+    //----------ATTRIBUTES---------
     private String firstName;
     private String lastName;
     private int age;
     private String email;
-    //--------------------------------
+    //-----------------------------
 
-    //--------CONSTRUCTOR-------------
+    //---------CONSTRUCTOR---------
     public Student(String firstName, String lastName, int age, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -17,9 +17,9 @@ public class Student {
     }
 
     public Student() {}
-    //--------------------------------
+    //-----------------------------
 
-    //-------STANDARD METHODS---------
+    //---------STANDARD METHODS----(getters/setters)
     public String getFirstName() {
         return firstName;
     }
@@ -51,11 +51,11 @@ public class Student {
     public void setEmail(String email) {
         this.email = email;
     }
-    //--------------------------------
+    //-----------------------------
 
-    //--------CUSTOM METHODS----------
+    //-------CUSTOM METHODS--------
     public String getFullName() {
-        return firstName + " " + lastName;
+        return firstName + " :: " + lastName + " (" + age + ") - " + email;
     }
-    //--------------------------------
+    //-----------------------------
 }
