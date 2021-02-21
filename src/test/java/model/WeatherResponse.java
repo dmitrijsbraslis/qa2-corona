@@ -8,12 +8,9 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class WeatherResponse {
     private Coord coord;
-
     @JsonProperty("weather")
     private List<Weather> weathers;
     private String base;
-    private Main main;
-    private int visibility;
 
     public Coord getCoord() {
         return coord;
@@ -37,21 +34,5 @@ public class WeatherResponse {
 
     public void setBase(String base) {
         this.base = base;
-    }
-
-    public Main getMain() {
-        return main;
-    }
-
-    public void setMain(Main main) {
-        this.main = main;
-    }
-
-    public int getVisibility() {
-        return visibility;
-    }
-
-    public void setVisibility(int visibility) {
-        this.visibility = visibility;
     }
 }
