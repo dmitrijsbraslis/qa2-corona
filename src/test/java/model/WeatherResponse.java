@@ -12,7 +12,7 @@ public class WeatherResponse {
     @JsonProperty("weather")
     private List<Weather> weathers;
     private String base;
-    private Main main;
+//    private Main main;
     private int visibility;
 
     public Coord getCoord() {
@@ -39,13 +39,13 @@ public class WeatherResponse {
         this.base = base;
     }
 
-    public Main getMain() {
-        return main;
-    }
-
-    public void setMain(Main main) {
-        this.main = main;
-    }
+//    public Main getMain() {
+//        return main;
+//    }
+//
+//    public void setMain(Main main) {
+//        this.main = main;
+//    }
 
     public int getVisibility() {
         return visibility;

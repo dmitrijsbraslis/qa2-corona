@@ -9,15 +9,15 @@ public class WeatherRequester {
     private final String PREFIX = "https://samples.openweathermap.org/data/2.5/weather?id=";
     private final String POSTFIX = "&appid=b1b15e88fa797225412429c1c50c122a1";
 
-    public WeatherResponse getWeather(int cityId) throws JsonProcessingException {
-        String url = PREFIX + cityId + POSTFIX;
+    public WeatherResponse requestWeather(int cityId) throws JsonProcessingException {
+        final String URL = PREFIX + cityId + POSTFIX;
 
-        //Request weather data & get response (RestTemplate)
+        //Request weather & get response
         RestTemplate restTemplate = new RestTemplate();
-        String json = restTemplate.getForEntity(url, String.class).getBody();
+        String jsonToParse = restTemplate.getForEntity(URL, String.class).getBody();
 
-        //Parse or map JSON to Object (WeatherResponse)
+        //Map JSON to our model (to WeatherResponse)
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(json, WeatherResponse.class);
+        return mapper.readValue(jsonToParse, WeatherResponse.class);
     }
 }
